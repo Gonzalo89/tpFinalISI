@@ -14,7 +14,7 @@ for file in $dir/clima/[!~]*
    sed -i 's-;\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)$-;\1;\2;\3;\4;\5;\6-' $archivoParcial
    sed -i 's/[A-Z]//g' $archivoParcial
    sed -i "s-^\([0-9]\)-$nombreArchivo;\1-" $archivoParcial
-   sed -i "s-\.-,-g" $archivoParcial
+   sed -i "s-/.-,-g" $archivoParcial
  done
 
 for file in $dir/ResultadoParcial/*
