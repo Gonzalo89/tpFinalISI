@@ -1,8 +1,77 @@
 [Diagram]
 Title=Analysis
-Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan73C.txt
+Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan81E.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
+successors=2
+succ_1=Define status 1
+succ_2=Define status 2
+
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=25
+input_1=Nro Estacion
+input_2=Año
+input_3=Mes
+input_4=Dia
+input_5=Temperatura media diaria
+input_6=Cant obs. 1
+input_7=Temperatura de rocio
+input_8=Cant obs. 2
+input_9=Presion reducida al nivel medio del mar (hpa)
+input_10=Cant obs. 3
+input_11=Presion al nivel de la estacion (hpa)
+input_12=Cant obs. 4
+input_13=Visibilidad en km
+input_14=Cant obs. 5
+input_15=Viento medio (m/s)
+input_16=Cant obs. 6
+input_17=Máximo viento sostenido (m/s)
+input_18=Temperatura Máxima (Celsisus)
+input_19=Temperatura Minima (Celsisus)
+input_20=Total precipitation en mm
+input_21=Neblina
+input_22=Lluvia o llovizna
+input_23=Nieve o agua nieve
+input_24=Granizo
+input_25=Tormenta
+illus_count=0
+successors=2
+succ_1=Univariate continuous stat 1
+succ_2=Univariate Outlier Detection 1
+
+[Univariate continuous stat 1]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Univariate Outlier Detection 1]
+MLClassGenerator=TMLGenCompODUnivariate
+pvalue=0,05
+mSigma=3
+show_detected=1
+use_fences=1
+isRemoveOutliers=0
+cSigma=0
+cInnerFence=0
+cOuterFence=1
+successors=0
+
+[Define status 2]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=1
+input_1=Nombre Estacion
+illus_count=0
+successors=1
+succ_1=Univariate discrete stat 1
+
+[Univariate discrete stat 1]
+MLClassGenerator=TMLGenCompSDUnivDisc
+sort_result=0
+sort_criteria=0
 successors=0
 
