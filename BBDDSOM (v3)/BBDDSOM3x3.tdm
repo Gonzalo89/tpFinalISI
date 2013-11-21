@@ -1,6 +1,6 @@
 [Diagram]
-Title=BBDDLimpia
-Database=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDDLimpia(v2)\BBDDLimpia.txt
+Title=Analysis
+Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan73C.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
