@@ -4,9 +4,10 @@ Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan81E.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=2
+successors=3
 succ_1=Define status 1
 succ_2=Define status 2
+succ_3=Export dataset 1
 
 [Define status 1]
 MLClassGenerator=TMLGenFSDefStatus
@@ -73,5 +74,12 @@ succ_1=Univariate discrete stat 1
 MLClassGenerator=TMLGenCompSDUnivDisc
 sort_result=0
 sort_criteria=0
+successors=0
+
+[Export dataset 1]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDDLimpia(v2)\output.txt
 successors=0
 

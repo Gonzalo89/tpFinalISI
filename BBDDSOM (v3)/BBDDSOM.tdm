@@ -4,8 +4,9 @@ Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan81E.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=1
+successors=2
 succ_1=Define status 1
+succ_2=Export dataset 1
 
 [Define status 1]
 MLClassGenerator=TMLGenFSDefStatus
@@ -37,47 +38,15 @@ input_23=Nieve o agua nieve
 input_24=Granizo
 input_25=Tormenta
 illus_count=0
-successors=10
-succ_1=Kohonen-SOM 1
-succ_2=Kohonen-SOM 2
-succ_3=Kohonen-SOM 3
-succ_4=Kohonen-SOM 4
-succ_5=Kohonen-SOM 5
-succ_6=Kohonen-SOM 6
-succ_7=Kohonen-SOM 7
-succ_8=Kohonen-SOM 8
-succ_9=Kohonen-SOM 9
-succ_10=Kohonen-SOM 10
-
-[Kohonen-SOM 1]
-MLClassGenerator=TGenClusSOM
-rnd_generator=1
-show_anova=0
-col_count=3
-row_count=3
-normalization=1
-learning_rate=0,05
-successors=0
-
-[Kohonen-SOM 2]
-MLClassGenerator=TGenClusSOM
-rnd_generator=1
-show_anova=0
-col_count=2
-row_count=2
-normalization=1
-learning_rate=0,05
-successors=0
-
-[Kohonen-SOM 3]
-MLClassGenerator=TGenClusSOM
-rnd_generator=1
-show_anova=0
-col_count=3
-row_count=2
-normalization=1
-learning_rate=0,05
-successors=0
+successors=8
+succ_1=Kohonen-SOM 4
+succ_2=Kohonen-SOM 5
+succ_3=Kohonen-SOM 6
+succ_4=Kohonen-SOM 7
+succ_5=Kohonen-SOM 9
+succ_6=Kohonen-SOM 10
+succ_7=Kohonen-SOM 11
+succ_8=K-Means 1
 
 [Kohonen-SOM 4]
 MLClassGenerator=TGenClusSOM
@@ -119,16 +88,6 @@ normalization=1
 learning_rate=0,05
 successors=0
 
-[Kohonen-SOM 8]
-MLClassGenerator=TGenClusSOM
-rnd_generator=1
-show_anova=0
-col_count=12
-row_count=1
-normalization=1
-learning_rate=0,05
-successors=0
-
 [Kohonen-SOM 9]
 MLClassGenerator=TGenClusSOM
 rnd_generator=1
@@ -143,9 +102,37 @@ successors=0
 MLClassGenerator=TGenClusSOM
 rnd_generator=1
 show_anova=0
-col_count=9
-row_count=4
+col_count=3
+row_count=3
 normalization=1
 learning_rate=0,05
+successors=0
+
+[Kohonen-SOM 11]
+MLClassGenerator=TGenClusSOM
+rnd_generator=1
+show_anova=0
+col_count=7
+row_count=5
+normalization=1
+learning_rate=0,05
+successors=0
+
+[K-Means 1]
+MLClassGenerator=TGenClusKMeans
+rnd_generator=1
+show_anova=0
+nb_clusters=9
+normalization=1
+avg_computation=1
+max_iter=10
+nb_trials=5
+successors=0
+
+[Export dataset 1]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDDSOM (v3)\output.txt
 successors=0
 
