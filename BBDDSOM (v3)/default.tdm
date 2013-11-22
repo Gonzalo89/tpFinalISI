@@ -1,0 +1,8 @@
+[Diagram]
+Title=Default title
+Database=C:\Gonzalo\tpFinalISI\BBDDSOM (v3)\output.txt
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=0
+
