@@ -1,6 +1,6 @@
 [Diagram]
 Title=Analysis
-Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tan81E.txt
+Database=output.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset

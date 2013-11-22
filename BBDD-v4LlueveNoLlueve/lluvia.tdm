@@ -1,0 +1,95 @@
+[Diagram]
+Title=Analysis
+Database=output.txt
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=3
+succ_1=Define status 1
+succ_2=Define status 2
+succ_3=Export dataset 1
+
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
+input_count=30
+input_1=Año
+input_2=Mes
+input_3=Dia
+input_4=Temperatura media diaria
+input_5=Temperatura de rocio
+input_6=Presion reducida al nivel medio del mar (hpa)
+input_7=Presion al nivel de la estacion (hpa)
+input_8=Visibilidad en km
+input_9=Viento medio (m/s)
+input_10=Máximo viento sostenido (m/s)
+input_11=Temperatura Máxima (Celsisus)
+input_12=Temperatura Minima (Celsisus)
+input_13=Neblina
+input_14=Nieve o agua nieve
+input_15=Granizo
+input_16=Año
+input_17=Mes
+input_18=Dia
+input_19=Temperatura media diaria
+input_20=Temperatura de rocio
+input_21=Presion reducida al nivel medio del mar (hpa)
+input_22=Presion al nivel de la estacion (hpa)
+input_23=Visibilidad en km
+input_24=Viento medio (m/s)
+input_25=Máximo viento sostenido (m/s)
+input_26=Temperatura Máxima (Celsisus)
+input_27=Temperatura Minima (Celsisus)
+input_28=Neblina
+input_29=Nieve o agua nieve
+input_30=Granizo
+illus_count=0
+successors=2
+succ_1=Supervised Learning 1 (C4.5)
+succ_2=Supervised Learning 2 (Prototype-NN)
+
+[Supervised Learning 1 (C4.5)]
+MLClassGenerator=TMLGCompOneInstance
+embedded_spv=1
+embedded_section=Supervised Learning 1 (C4.5)--C4.5
+successors=0
+
+[Supervised Learning 1 (C4.5)--C4.5]
+MLClassGenerator=TMLGCompSpvTreeC45
+min_size_leaf=5
+p_level=0,25
+
+[Supervised Learning 2 (Prototype-NN)]
+MLClassGenerator=TMLGCompOneInstance
+embedded_spv=1
+embedded_section=Supervised Learning 2 (Prototype-NN)--Prototype-NN
+successors=0
+
+[Supervised Learning 2 (Prototype-NN)--Prototype-NN]
+MLClassGenerator=TMLGCompProtoNN
+normalization=1
+cluster_name=Cluster_SOM_1
+
+[Define status 2]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=1
+input_1=Cluster_SOM_1
+illus_count=0
+successors=1
+succ_1=Univariate discrete stat 1
+
+[Univariate discrete stat 1]
+MLClassGenerator=TMLGenCompSDUnivDisc
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Export dataset 1]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDD-v4LlueveNoLlueve\output.txt
+successors=0
+
