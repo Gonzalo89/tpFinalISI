@@ -4,97 +4,48 @@ Database=output.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=4
+successors=1
 succ_1=Define status 1
-succ_2=Define status 2
-succ_3=Export dataset 1
-succ_4=Define status 3
 
 [Define status 1]
 MLClassGenerator=TMLGenFSDefStatus
-target_count=1
-target_1=Cluster_SOM_1
-input_count=30
-input_1=Año
-input_2=Mes
-input_3=Dia
-input_4=Temperatura media diaria
-input_5=Temperatura de rocio
-input_6=Presion reducida al nivel medio del mar (hpa)
-input_7=Presion al nivel de la estacion (hpa)
-input_8=Visibilidad en km
-input_9=Viento medio (m/s)
-input_10=Máximo viento sostenido (m/s)
-input_11=Temperatura Máxima (Celsisus)
-input_12=Temperatura Minima (Celsisus)
-input_13=Neblina
-input_14=Nieve o agua nieve
-input_15=Granizo
-input_16=Año
-input_17=Mes
-input_18=Dia
-input_19=Temperatura media diaria
-input_20=Temperatura de rocio
-input_21=Presion reducida al nivel medio del mar (hpa)
-input_22=Presion al nivel de la estacion (hpa)
-input_23=Visibilidad en km
-input_24=Viento medio (m/s)
-input_25=Máximo viento sostenido (m/s)
-input_26=Temperatura Máxima (Celsisus)
-input_27=Temperatura Minima (Celsisus)
-input_28=Neblina
-input_29=Nieve o agua nieve
-input_30=Granizo
-illus_count=0
-successors=2
-succ_1=Supervised Learning 1 (C4.5)
-succ_2=Supervised Learning 2 (Prototype-NN)
-
-[Supervised Learning 1 (C4.5)]
-MLClassGenerator=TMLGCompOneInstance
-embedded_spv=1
-embedded_section=Supervised Learning 1 (C4.5)--C4.5
-successors=0
-
-[Supervised Learning 1 (C4.5)--C4.5]
-MLClassGenerator=TMLGCompSpvTreeC45
-min_size_leaf=50
-p_level=0,25
-
-[Supervised Learning 2 (Prototype-NN)]
-MLClassGenerator=TMLGCompOneInstance
-embedded_spv=1
-embedded_section=Supervised Learning 2 (Prototype-NN)--Prototype-NN
-successors=0
-
-[Supervised Learning 2 (Prototype-NN)--Prototype-NN]
-MLClassGenerator=TMLGCompProtoNN
-normalization=1
-cluster_name=Cluster_SOM_1
-
-[Define status 2]
-MLClassGenerator=TMLGenFSDefStatus
 target_count=0
-input_count=1
-input_1=Cluster_SOM_1
+input_count=9
+input_1=Temperatura media diaria
+input_2=Temperatura de rocio
+input_3=Presion reducida al nivel medio del mar (hpa)
+input_4=Presion al nivel de la estacion (hpa)
+input_5=Visibilidad en km
+input_6=Viento medio (m/s)
+input_7=Máximo viento sostenido (m/s)
+input_8=Temperatura Máxima (Celsisus)
+input_9=Temperatura Minima (Celsisus)
 illus_count=0
 successors=1
-succ_1=Univariate discrete stat 1
+succ_1=Univariate Outlier Detection 1
 
-[Univariate discrete stat 1]
-MLClassGenerator=TMLGenCompSDUnivDisc
-sort_result=0
-sort_criteria=0
-successors=0
+[Univariate Outlier Detection 1]
+MLClassGenerator=TMLGenCompODUnivariate
+pvalue=0,05
+mSigma=3
+show_detected=1
+use_fences=1
+isRemoveOutliers=1
+cSigma=1
+cInnerFence=1
+cOuterFence=1
+successors=2
+succ_1=Export dataset 1
+succ_2=Define status 2
 
 [Export dataset 1]
 MLClassGenerator=TMLGenCompExportData
 SelectExamples=0
 SelectAttributes=0
-Filename=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDD-v4LlueveNoLlueve\output.txt
+Filename=output.txt
 successors=0
 
-[Define status 3]
+[Define status 2]
 MLClassGenerator=TMLGenFSDefStatus
 target_count=0
 input_count=5
@@ -104,87 +55,51 @@ input_3=Nieve o agua nieve
 input_4=Granizo
 input_5=Tormenta
 illus_count=0
-successors=2
+successors=1
 succ_1=Cont to disc 1
-succ_2=Define status 5
 
 [Cont to disc 1]
 MLClassGenerator=TGenFCC2D
 successors=1
-succ_1=Define status 4
+succ_1=Define status 3
 
-[Define status 4]
-MLClassGenerator=TMLGenFSDefStatus
-target_count=1
-target_1=Cluster_SOM_1
-input_count=16
-input_1=Año
-input_2=Mes
-input_3=Dia
-input_4=Temperatura media diaria
-input_5=Temperatura de rocio
-input_6=Presion reducida al nivel medio del mar (hpa)
-input_7=Presion al nivel de la estacion (hpa)
-input_8=Visibilidad en km
-input_9=Viento medio (m/s)
-input_10=Máximo viento sostenido (m/s)
-input_11=Temperatura Máxima (Celsisus)
-input_12=Temperatura Minima (Celsisus)
-input_13=Nombre Estacion
-input_14=c2d_Neblina_1
-input_15=c2d_Nieve o agua nieve_1
-input_16=c2d_Granizo_1
-illus_count=0
-successors=1
-succ_1=Supervised Learning 3 (C4.5)
-
-[Supervised Learning 3 (C4.5)]
-MLClassGenerator=TMLGCompOneInstance
-embedded_spv=1
-embedded_section=Supervised Learning 3 (C4.5)--C4.5
-successors=0
-
-[Supervised Learning 3 (C4.5)--C4.5]
-MLClassGenerator=TMLGCompSpvTreeC45
-min_size_leaf=50
-p_level=0,25
-
-[Define status 5]
+[Define status 3]
 MLClassGenerator=TMLGenFSDefStatus
 target_count=0
-input_count=12
-input_1=Año
-input_2=Mes
-input_3=Dia
-input_4=Temperatura media diaria
-input_5=Temperatura de rocio
-input_6=Presion reducida al nivel medio del mar (hpa)
-input_7=Presion al nivel de la estacion (hpa)
-input_8=Visibilidad en km
-input_9=Viento medio (m/s)
-input_10=Máximo viento sostenido (m/s)
-input_11=Temperatura Máxima (Celsisus)
-input_12=Temperatura Minima (Celsisus)
+input_count=14
+input_1=Temperatura media diaria
+input_2=Temperatura de rocio
+input_3=Presion reducida al nivel medio del mar (hpa)
+input_4=Presion al nivel de la estacion (hpa)
+input_5=Visibilidad en km
+input_6=Viento medio (m/s)
+input_7=Máximo viento sostenido (m/s)
+input_8=Temperatura Máxima (Celsisus)
+input_9=Temperatura Minima (Celsisus)
+input_10=Neblina
+input_11=Lluvia o llovizna
+input_12=Nieve o agua nieve
+input_13=Granizo
+input_14=Tormenta
 illus_count=0
-successors=2
-succ_1=Univariate Outlier Detection 1
-succ_2=Univariate continuous stat 1
+successors=1
+succ_1=Kohonen-SOM 1
 
-[Univariate Outlier Detection 1]
-MLClassGenerator=TMLGenCompODUnivariate
-pvalue=0,05
-mSigma=3
-show_detected=1
-use_fences=1
-isRemoveOutliers=1
-cSigma=0
-cInnerFence=0
-cOuterFence=1
-successors=0
+[Kohonen-SOM 1]
+MLClassGenerator=TGenClusSOM
+rnd_generator=1
+show_anova=0
+col_count=5
+row_count=3
+normalization=1
+learning_rate=0,05
+successors=1
+succ_1=Export dataset 2
 
-[Univariate continuous stat 1]
-MLClassGenerator=TMLGenCompSDUnivCont
-sort_result=0
-sort_criteria=0
+[Export dataset 2]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=output.txt
 successors=0
 
