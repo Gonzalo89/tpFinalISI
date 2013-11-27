@@ -1,16 +1,8 @@
 [Diagram]
 Title=Analysis
-Database=output.txt
+Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tanCE.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=1
-succ_1=Export dataset 1
-
-[Export dataset 1]
-MLClassGenerator=TMLGenCompExportData
-SelectExamples=0
-SelectAttributes=0
-Filename=output.txt
 successors=0
 
