@@ -1,8 +1,0 @@
-[Diagram]
-Title=Analysis
-Database=C:\DOCUME~1\rodrif\CONFIG~1\Temp\tanCE.txt
-
-[Dataset]
-MLClassGenerator=TMLGenDataset
-successors=0
-
