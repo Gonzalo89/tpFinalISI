@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme description="" title="prueba" version="2.0">
+	<nodes>
+		<node id="0" name="File" position="(144.0, 105.0)" project_name="Orange" qualified_name="Orange.OrangeWidgets.Data.OWFile.OWFile" title="File" version="" />
+		<node id="1" name="Data Table" position="(384.0, 103.0)" project_name="Orange" qualified_name="Orange.OrangeWidgets.Data.OWDataTable.OWDataTable" title="Data Table" version="" />
+		<node id="2" name="Naive Bayes" position="(343.0, 281.0)" project_name="Orange" qualified_name="Orange.OrangeWidgets.Classify.OWNaiveBayes.OWNaiveBayes" title="Naive Bayes" version="" />
+		<node id="3" name="Nomogram" position="(607.0, 327.0)" project_name="Orange" qualified_name="Orange.OrangeWidgets.Classify.OWNomogram.OWNomogram" title="Nomogram" version="" />
+	</nodes>
+	<links>
+		<link enabled="true" id="0" sink_channel="Data" sink_node_id="1" source_channel="Data" source_node_id="0" />
+		<link enabled="true" id="1" sink_channel="Data" sink_node_id="2" source_channel="Data" source_node_id="0" />
+		<link enabled="true" id="2" sink_channel="Classifier" sink_node_id="3" source_channel="Naive Bayesian Classifier" source_node_id="2" />
+	</links>
+	<annotations />
+	<thumbnail />
+	<node_properties>
+		<properties format="pickle" node_id="0">(dp1
+S'createNewOn'
+p2
+I1
+sS'widgetShown'
+p3
+I0
+sS'showAdvanced'
+p4
+I0
+sS'savedWidgetGeometry'
+p5
+S'\x01\xd9\xd0\xcb\x00\x01\x00\x00\x00\x00\x01\xe9\x00\x00\x00\xdc\x00\x00\x03l\x00\x00\x01\xec\x00\x00\x01\xed\x00\x00\x00\xfa\x00\x00\x03h\x00\x00\x01\xe8\x00\x00\x00\x00\x00\x00'
+p6
+sS'localContextsVersion'
+p7
+(I100
+I0
+tp8
+sS'localContexts'
+p9
+(lp10
+(iOWContexts
+Context
+p11
+(dp12
+S'symbolDC'
+p13
+S'?'
+sS'symbolDK'
+p14
+S'~'
+sS'filename'
+p15
+VC:/Python27/Lib/site-packages/Orange/datasets/titanic.tab
+p16
+sS'time'
+p17
+F1385649858.7179999
+sbasS'recentFiles'
+p18
+(lp19
+g16
+as.</properties>
+		<properties format="literal" node_id="1">{'autoCommit': False, 'showMeta': 1, 'selectRows': True, 'distColorRgb': (220, 220, 220, 255), 'showAttributeLabels': True, 'showDistributions': 1, 'widgetShown': 0, 'savedWidgetGeometry': '\x01\xd9\xd0\xcb\x00\x01\x00\x00\x00\x00\x02\x18\x00\x00\x00I\x00\x00\x04\xf8\x00\x00\x02\x7f\x00\x00\x02\x1c\x00\x00\x00g\x00\x00\x04\xf4\x00\x00\x02{\x00\x00\x00\x00\x00\x00', 'selectedSchemaIndex': 0, 'colorByClass': True}</properties>
+		<properties format="literal" node_id="2">{'adjustThreshold': 0, 'name': 'Naive Bayes', 'probEstimation': 0, 'm_estimator.m': 2.0, 'condProbEstimation': 0, 'savedWidgetGeometry': None, 'widgetShown': None, 'windowProportion': 0.5}</properties>
+		<properties format="pickle" node_id="3">(dp1
+S'sort_type'
+p2
+I0
+sS'widgetShown'
+p3
+NsS'localContextsVersion'
+p4
+(I100
+I0
+tp5
+sS'histogram_size'
+p6
+I10
+sS'verticalSpacingContinuous'
+p7
+I100
+sS'probability'
+p8
+I0
+sS'yAxis'
+p9
+I0
+sS'localContexts'
+p10
+(lp11
+(iOWContexts
+Context
+p12
+(dp13
+S'metas'
+p14
+(dp15
+sS'values'
+p16
+(dp17
+S'TargetClassIndex'
+p18
+(I0
+I-2
+tp19
+ssS'time'
+p20
+F1385649924.7030001
+sS'attributes'
+p21
+(dp22
+S'status'
+p23
+cOrange.orange
+__pickleLoaderNamedConstants
+p24
+(S'Variable_Type'
+(I1
+ttRp25
+sS'age'
+p26
+g24
+(S'Variable_Type'
+(I1
+ttRp27
+sS'survived'
+p28
+cOrange.core
+StringList
+p29
+(tRp30
+S'no'
+aS'yes'
+a(dbsS'sex'
+p31
+g24
+(S'Variable_Type'
+(I1
+ttRp32
+ssS'noCopy'
+p33
+(lp34
+S'orderedDomain'
+p35
+asbasS'confidence_check'
+p36
+I0
+sS'histogram'
+p37
+I0
+sS'contType'
+p38
+I0
+sS'verticalSpacing'
+p39
+I60
+sS'savedWidgetGeometry'
+p40
+NsS'confidence_percent'
+p41
+I95
+sS'alignType'
+p42
+I0
+s.</properties>
+	</node_properties>
+</scheme>
