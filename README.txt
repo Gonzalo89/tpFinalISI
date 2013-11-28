@@ -1,5 +1,5 @@
 tpFinalISI
-==
+= =
 
 Tutorial para usar Tanagra
 
