@@ -4,9 +4,10 @@ Database=output.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=2
+successors=3
 succ_1=Define status 1
 succ_2=Export dataset 1
+succ_3=Define status 6
 
 [Define status 1]
 MLClassGenerator=TMLGenFSDefStatus
@@ -55,9 +56,10 @@ succ_1=Cont to disc 1
 
 [Cont to disc 1]
 MLClassGenerator=TGenFCC2D
-successors=2
+successors=3
 succ_1=Define status 3
 succ_2=Define status 4
+succ_3=Define status 8
 
 [Define status 3]
 MLClassGenerator=TMLGenFSDefStatus
@@ -167,6 +169,38 @@ MLClassGenerator=TMLGenCompSDGroupCarac
 normalization=0
 successors=0
 
+[Define status 8]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=12
+target_1=Año
+target_2=Mes
+target_3=Dia
+target_4=Temperatura media diaria
+target_5=Temperatura de rocio
+target_6=Presion reducida al nivel medio del mar (hpa)
+target_7=Presion al nivel de la estacion (hpa)
+target_8=Visibilidad en km
+target_9=Viento medio (m/s)
+target_10=Máximo viento sostenido (m/s)
+target_11=Temperatura Máxima (Celsisus)
+target_12=Temperatura Minima (Celsisus)
+input_count=6
+input_1=Nombre Estacion
+input_2=Cluster_SOM_1
+input_3=c2d_Neblina_1
+input_4=c2d_Lluvia_1
+input_5=c2d_Nieve o agua nieve_1
+input_6=c2d_Granizo_1
+illus_count=0
+successors=1
+succ_1=One-way ANOVA 2
+
+[One-way ANOVA 2]
+MLClassGenerator=TMLGenCompSDOneAnova
+sort_result=0
+sort_criteria=0
+successors=0
+
 [Define status 5]
 MLClassGenerator=TMLGenFSDefStatus
 target_count=0
@@ -187,5 +221,36 @@ MLClassGenerator=TMLGenCompExportData
 SelectExamples=0
 SelectAttributes=0
 Filename=output.txt
+successors=0
+
+[Define status 6]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=11
+input_1=Mes
+input_2=Dia
+input_3=Temperatura media diaria
+input_4=Temperatura de rocio
+input_5=Presion reducida al nivel medio del mar (hpa)
+input_6=Presion al nivel de la estacion (hpa)
+input_7=Visibilidad en km
+input_8=Viento medio (m/s)
+input_9=Máximo viento sostenido (m/s)
+input_10=Temperatura Máxima (Celsisus)
+input_11=Temperatura Minima (Celsisus)
+illus_count=0
+successors=2
+succ_1=Linear correlation 1
+succ_2=Scatterplot 1
+
+[Linear correlation 1]
+MLClassGenerator=TMLGenCompSDCorrelation
+sort_result=0
+sort_criteria=0
+input_list=1
+successors=0
+
+[Scatterplot 1]
+MLClassGenerator=TMLGenCompScatterPlot
 successors=0
 
