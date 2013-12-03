@@ -2,124 +2,64 @@
 # Rules from DECISION TREE
 #
 
-Number of rules: 16;
+Number of rules: 9;
 
 # Rule 1
-If Visibilidad en km >= 21,4000
-And Presion al nivel de la estacion (hpa) >= 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_2_1 [0,8269]
+If Máximo viento sostenido (m/s) >= 10,5500
+And Temperatura Minima (Celsisus) < 9,0500
+And Visibilidad en km < 21,6500
+And Presion al nivel de la estacion (hpa) >= 978,7500
+Then Cluster_SOM_1 = c_som_1_1 [0,8560]
 
 # Rule 2
-If Temperatura de rocio >= 5,7500
-And Presion al nivel de la estacion (hpa) < 980,6500
-And Máximo viento sostenido (m/s) < 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_3_1 [0,4726]
+If Temperatura de rocio >= 9,2500
+And Máximo viento sostenido (m/s) < 10,5500
+And Temperatura Minima (Celsisus) < 9,0500
+And Visibilidad en km < 21,6500
+And Presion al nivel de la estacion (hpa) >= 978,7500
+Then Cluster_SOM_1 = c_som_2_2 [0,5490]
 
 # Rule 3
-If Temperatura de rocio < 12,1500
-And Temperatura media diaria < 16,8500
-And Visibilidad en km < 21,4000
-And Presion al nivel de la estacion (hpa) >= 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_2_2 [0,6765]
+If Máximo viento sostenido (m/s) < 5,9500
+And Presion al nivel de la estacion (hpa) >= 961,0500
+And Temperatura Minima (Celsisus) >= 8,7500
+And Presion al nivel de la estacion (hpa) < 978,7500
+Then Cluster_SOM_1 = c_som_2_2 [0,5855]
 
 # Rule 4
-If Temperatura de rocio >= 12,1500
-And Temperatura media diaria < 16,8500
-And Visibilidad en km < 21,4000
-And Presion al nivel de la estacion (hpa) >= 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_3_2 [0,9003]
+If Máximo viento sostenido (m/s) >= 5,9500
+And Presion al nivel de la estacion (hpa) >= 961,0500
+And Temperatura Minima (Celsisus) >= 8,7500
+And Presion al nivel de la estacion (hpa) < 978,7500
+Then Cluster_SOM_1 = c_som_3_2 [0,8166]
 
 # Rule 5
-If Temperatura de rocio < 2,2500
-And Máximo viento sostenido (m/s) < 11,5500
-And Máximo viento sostenido (m/s) >= 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_1_1 [0,7285]
+If Temperatura de rocio < 9,2500
+And Máximo viento sostenido (m/s) < 10,5500
+And Temperatura Minima (Celsisus) < 9,0500
+And Visibilidad en km < 21,6500
+And Presion al nivel de la estacion (hpa) >= 978,7500
+Then Cluster_SOM_1 = c_som_1_2 [0,9279]
 
 # Rule 6
-If Temperatura de rocio >= 2,2500
-And Máximo viento sostenido (m/s) < 11,5500
-And Máximo viento sostenido (m/s) >= 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_2_2 [0,4862]
+If Temperatura Minima (Celsisus) >= 9,0500
+And Visibilidad en km < 21,6500
+And Presion al nivel de la estacion (hpa) >= 978,7500
+Then Cluster_SOM_1 = c_som_2_2 [0,9338]
 
 # Rule 7
-If Máximo viento sostenido (m/s) < 5,4000
-And Visibilidad en km < 11,0000
-And Presion al nivel de la estacion (hpa) < 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_3_2 [0,7450]
+If Presion al nivel de la estacion (hpa) < 961,0500
+And Temperatura Minima (Celsisus) >= 8,7500
+And Presion al nivel de la estacion (hpa) < 978,7500
+Then Cluster_SOM_1 = c_som_3_2 [0,9360]
 
 # Rule 8
-If Máximo viento sostenido (m/s) >= 5,4000
-And Visibilidad en km < 11,0000
-And Presion al nivel de la estacion (hpa) < 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_3_1 [0,7863]
+If Visibilidad en km >= 21,6500
+And Presion al nivel de la estacion (hpa) >= 978,7500
+Then Cluster_SOM_1 = c_som_3_1 [0,8680]
 
 # Rule 9
-If Presion al nivel de la estacion (hpa) < 1007,4000
-And Temperatura de rocio < 0,4500
-And Presion al nivel de la estacion (hpa) >= 980,6500
-And Máximo viento sostenido (m/s) < 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_1_2 [0,4912]
-
-# Rule 10
-If Presion al nivel de la estacion (hpa) >= 1007,4000
-And Temperatura de rocio < 0,4500
-And Presion al nivel de la estacion (hpa) >= 980,6500
-And Máximo viento sostenido (m/s) < 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_2_2 [0,9403]
-
-# Rule 11
-If Temperatura de rocio >= 0,4500
-And Presion al nivel de la estacion (hpa) >= 980,6500
-And Máximo viento sostenido (m/s) < 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_2_2 [0,9325]
-
-# Rule 12
-If Temperatura de rocio < 5,7500
-And Presion al nivel de la estacion (hpa) < 980,6500
-And Máximo viento sostenido (m/s) < 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_1_2 [0,9327]
-
-# Rule 13
-If Temperatura media diaria >= 16,8500
-And Visibilidad en km < 21,4000
-And Presion al nivel de la estacion (hpa) >= 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_3_2 [0,9368]
-
-# Rule 14
-If Máximo viento sostenido (m/s) >= 11,5500
-And Máximo viento sostenido (m/s) >= 9,5500
-And Visibilidad en km < 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_1_1 [0,9739]
-
-# Rule 15
-If Visibilidad en km >= 11,0000
-And Presion al nivel de la estacion (hpa) < 970,0500
-And Temperatura Minima (Celsisus) >= 9,8500
-Then Cluster_SOM_1 = c_som_3_1 [0,9284]
-
-# Rule 16
-If Visibilidad en km >= 21,0000
-And Temperatura Minima (Celsisus) < 9,8500
-Then Cluster_SOM_1 = c_som_2_1 [0,7900]
+If Temperatura Minima (Celsisus) < 8,7500
+And Presion al nivel de la estacion (hpa) < 978,7500
+Then Cluster_SOM_1 = c_som_2_1 [0,8115]
 
