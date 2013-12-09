@@ -1,0 +1,38 @@
+64: Rio_Negro_E
+65: Buenos_Aires_S
+52, 53, 58: Buenos_Aires_E
+43, 44, 45: Buenos_Aires_NE
+42: Buenos_Aires_N
+48, 50, 56, 54, 51, 55, 57, 59: Buenos_Aires_C
+37, 40: Cordoba_S
+33: Cordoba_E
+27: Cordoba_O
+25, 28: Cordoba_C
+78: Rio_Gallegos_S
+77: Rio_Gallegos_SO
+74, 76: Rio_Gallegos_E
+75: Rio_Gallegos_C
+73: Rio_Gallegos_NO
+33: Cordoba_E
+27: Cordoba_O
+25, 28: Cordoba_C
+61: Neuquen_E
+66, 68: Rio_Negro_O
+
+Faro Segunda Barranca (sin datos): Buenos_Aires_S
+Dolores, Sta Teresita(sin datos), Mar del Plata: Buenos_Aires_E
+Ezeiza, Aeroparque Bs. As., La Plata: Buenos_Aires_NE
+Junín: Buenos_Aires_N
+Pehuajó (sin datos), Bolivar (sin datos), Coronel Suarez (sin datos), Olavarria (sin datos), Las Flores (sin datos), Azul, Tandil, Bahía Blanca: Buenos_Aires_C
+Rio Cuarto, Laboulaye: Cordoba_S
+Marcos Juarez: Cordoba_E
+Villa Dolores: Cordoba_O
+Cordoba, Pilar: Cordoba_C
+Rio Gallegos: Santa_Cruz_S
+Lago Argentino: Santa_Cruz_SO
+Puerto Deseado (sin datos), San Julian: Santa_Cruz_E
+Gobernador Gregores (sin datos): Santa_Cruz_C
+Perito Moreno (sin datos): Santa_Cruz_NO
+Neuquen: Neuquen_E
+Viedma, San Antonio Oeste: Rio_Negro_E
+Bariloche, El Bolson: Rio_Negro_O

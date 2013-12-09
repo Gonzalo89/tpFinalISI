@@ -1,0 +1,13 @@
+[Diagram]
+Title=Default title
+Database=C:\Users\USUARIO\Desktop\tpFinalISI\BBDDUsandoRegiones\BBDDUsandoRegionesSinModificar.xls
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=1
+succ_1=View dataset 1
+
+[View dataset 1]
+MLClassGenerator=TMLGenCompViewData
+successors=0
+

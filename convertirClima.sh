@@ -1,5 +1,5 @@
 dir=$PWD
-
+. ./estaciones_provincia.sh
 echo -n "" > resultadoFinal
 
 for file in $dir/clima/[!~]*
@@ -12,7 +12,7 @@ for file in $dir/clima/[!~]*
    sed -i 's/\*//g' $archivoParcial # borra *
    sed -i 's-;\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)\([0-1]\)$-;\1;\2;\3;\4;\5;\6-' $archivoParcial # separa campos binarios
    sed -i 's/[A-Z]//g' $archivoParcial # borra letras
-   sed -i "s-^\([0-9]\)-$nombreArchivo;\1-" $archivoParcial # agrega como primer fila el nombre del archivo
+   sed -i "s-^-$nombreArchivo;${!nombreArchivo};-" $archivoParcial # agrega como primer fila el nombre del archivo y el de la provincia
  done
 
 for file in $dir/ResultadoParcial/*
