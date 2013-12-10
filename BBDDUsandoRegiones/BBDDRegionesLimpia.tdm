@@ -4,10 +4,9 @@ Database=input.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=3
+successors=2
 succ_1=Define status 1
 succ_2=Define status 2
-succ_3=Export dataset 1
 
 [Define status 1]
 MLClassGenerator=TMLGenFSDefStatus
@@ -16,12 +15,12 @@ input_count=14
 input_1=Fecha
 input_2=Temperatura media diaria
 input_3=Temperatura de rocio
-input_4= Presion reducida al nivel medio del mar (hpa)
+input_4=Presion reducida al nivel medio del mar (hpa)
 input_5=Presion al nivel de la estacion (hpa)
 input_6=Visibilidad en km
-input_7= Viento medio (m/s)
+input_7=Viento medio (m/s)
 input_8=Máximo viento sostenido (m/s)
-input_9= Temperatura Máxima (Celsisus)
+input_9=Temperatura Máxima (Celsisus)
 input_10=Temperatura Minima (Celsisus)
 input_11=Neblina
 input_12=Lluvia
@@ -44,12 +43,12 @@ input_count=10
 input_1=Fecha
 input_2=Temperatura media diaria
 input_3=Temperatura de rocio
-input_4= Presion reducida al nivel medio del mar (hpa)
+input_4=Presion reducida al nivel medio del mar (hpa)
 input_5=Presion al nivel de la estacion (hpa)
 input_6=Visibilidad en km
-input_7= Viento medio (m/s)
+input_7=Viento medio (m/s)
 input_8=Máximo viento sostenido (m/s)
-input_9= Temperatura Máxima (Celsisus)
+input_9=Temperatura Máxima (Celsisus)
 input_10=Temperatura Minima (Celsisus)
 illus_count=0
 successors=1
@@ -71,6 +70,53 @@ succ_1=Define status 3
 [Define status 3]
 MLClassGenerator=TMLGenFSDefStatus
 target_count=0
+input_count=9
+input_1=Temperatura media diaria
+input_2=Temperatura de rocio
+input_3= Presion reducida al nivel medio del mar (hpa)
+input_4=Presion al nivel de la estacion (hpa)
+input_5=Visibilidad en km
+input_6= Viento medio (m/s)
+input_7=Máximo viento sostenido (m/s)
+input_8= Temperatura Máxima (Celsisus)
+input_9=Temperatura Minima (Celsisus)
+illus_count=0
+successors=1
+succ_1=Kohonen-SOM 1
+
+[Kohonen-SOM 1]
+MLClassGenerator=TGenClusSOM
+rnd_generator=0
+show_anova=0
+col_count=2
+row_count=3
+normalization=1
+learning_rate=0,05
+successors=2
+succ_1=Define status 4
+succ_2=Define status 6
+
+[Define status 4]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=4
+input_1=Neblina
+input_2=Lluvia
+input_3=Nieve o agua nieve
+input_4=Granizo
+illus_count=0
+successors=1
+succ_1=Cont to disc 1
+
+[Cont to disc 1]
+MLClassGenerator=TGenFCC2D
+successors=1
+succ_1=Define status 5
+
+[Define status 5]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
 input_count=14
 input_1=Fecha
 input_2=Temperatura media diaria
@@ -82,24 +128,47 @@ input_7= Viento medio (m/s)
 input_8=Máximo viento sostenido (m/s)
 input_9= Temperatura Máxima (Celsisus)
 input_10=Temperatura Minima (Celsisus)
-input_11=Neblina
-input_12=Lluvia
-input_13=Nieve o agua nieve
-input_14=Granizo
+input_11=c2d_Neblina_1
+input_12=c2d_Lluvia_1
+input_13=c2d_Nieve o agua nieve_1
+input_14=c2d_Granizo_1
 illus_count=0
 successors=1
-succ_1=Univariate continuous stat 2
+succ_1=Supervised Learning 1 (C4.5)
 
-[Univariate continuous stat 2]
-MLClassGenerator=TMLGenCompSDUnivCont
-sort_result=0
-sort_criteria=0
+[Supervised Learning 1 (C4.5)]
+MLClassGenerator=TMLGCompOneInstance
+embedded_spv=1
+embedded_section=Supervised Learning 1 (C4.5)--C4.5
 successors=0
 
-[Export dataset 1]
-MLClassGenerator=TMLGenCompExportData
-SelectExamples=0
-SelectAttributes=0
-Filename=output.txt
+[Supervised Learning 1 (C4.5)--C4.5]
+MLClassGenerator=TMLGCompSpvTreeC45
+min_size_leaf=300
+p_level=0,25
+
+[Define status 6]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
+input_count=11
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+input_11=Provincia
+illus_count=0
+successors=1
+succ_1=Group characterization 1
+
+[Group characterization 1]
+MLClassGenerator=TMLGenCompSDGroupCarac
+normalization=0
 successors=0
 
