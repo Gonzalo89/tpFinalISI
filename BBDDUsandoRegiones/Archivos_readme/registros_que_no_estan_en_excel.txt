@@ -1,0 +1,11 @@
+Archivos de registros que no figuran en excel (ya sea por
+quedar en la limpieza o porque simplemente no estan):
+- Aeroparque_B_Aires_Aero
+- Bariloche_Aero
+- Jujuy_Aero
+- La_Quiaca
+- Lago_Argentino_Aero
+- 
+Malargue_Aero
+- Rio_Grande_Aero
+- Salta_Aero

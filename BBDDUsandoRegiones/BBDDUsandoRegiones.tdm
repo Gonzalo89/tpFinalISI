@@ -1,13 +1,39 @@
 [Diagram]
 Title=Default title
-Database=C:\Users\USUARIO\Desktop\tpFinalISI\BBDDUsandoRegiones\BBDDUsandoRegionesSinModificar.xls
+Database=C:\Users\USUARIO\Desktop\tpFinalISI\BBDDUsandoRegiones\BBDDUsandoRegiones.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
 successors=1
-succ_1=View dataset 1
+succ_1=Define status 1
 
-[View dataset 1]
-MLClassGenerator=TMLGenCompViewData
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=16
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Ráfaga máxima (m/s)
+input_10= Temperatura Máxima (Celsisus)
+input_11=Temperatura Minima (Celsisus)
+input_12= Total precipitation en mm
+input_13=Neblina
+input_14=Lluvia
+input_15=Nieve o agua nieve
+input_16=Granizo
+illus_count=0
+successors=1
+succ_1=Univariate continuous stat 1
+
+[Univariate continuous stat 1]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
 successors=0
 
