@@ -4,10 +4,41 @@ Database=BBDDUsandoRegiones.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
-successors=1
+successors=2
 succ_1=Define status 1
+succ_2=Define status 2
 
 [Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=16
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4=Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7=Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9=Ráfaga máxima (m/s)
+input_10=Temperatura Máxima (Celsisus)
+input_11=Temperatura Minima (Celsisus)
+input_12=Total precipitation en mm
+input_13=Neblina
+input_14=Lluvia
+input_15=Nieve o agua nieve
+input_16=Granizo
+illus_count=0
+successors=1
+succ_1=Univariate continuous stat 1
+
+[Univariate continuous stat 1]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Define status 2]
 MLClassGenerator=TMLGenFSDefStatus
 target_count=0
 input_count=16
@@ -29,9 +60,46 @@ input_15=Nieve o agua nieve
 input_16=Granizo
 illus_count=0
 successors=1
-succ_1=Univariate continuous stat 1
+succ_1=Univariate Outlier Detection 1
 
-[Univariate continuous stat 1]
+[Univariate Outlier Detection 1]
+MLClassGenerator=TMLGenCompODUnivariate
+pvalue=0,05
+mSigma=3
+show_detected=0
+use_fences=1
+isRemoveOutliers=1
+cSigma=0
+cInnerFence=0
+cOuterFence=1
+successors=1
+succ_1=Define status 3
+
+[Define status 3]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=16
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Ráfaga máxima (m/s)
+input_10= Temperatura Máxima (Celsisus)
+input_11=Temperatura Minima (Celsisus)
+input_12= Total precipitation en mm
+input_13=Neblina
+input_14=Lluvia
+input_15=Nieve o agua nieve
+input_16=Granizo
+illus_count=0
+successors=1
+succ_1=Univariate continuous stat 2
+
+[Univariate continuous stat 2]
 MLClassGenerator=TMLGenCompSDUnivCont
 sort_result=0
 sort_criteria=0
