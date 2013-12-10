@@ -73,12 +73,12 @@ target_count=0
 input_count=9
 input_1=Temperatura media diaria
 input_2=Temperatura de rocio
-input_3= Presion reducida al nivel medio del mar (hpa)
+input_3=Presion reducida al nivel medio del mar (hpa)
 input_4=Presion al nivel de la estacion (hpa)
 input_5=Visibilidad en km
-input_6= Viento medio (m/s)
+input_6=Viento medio (m/s)
 input_7=Máximo viento sostenido (m/s)
-input_8= Temperatura Máxima (Celsisus)
+input_8=Temperatura Máxima (Celsisus)
 input_9=Temperatura Minima (Celsisus)
 illus_count=0
 successors=1
@@ -86,15 +86,18 @@ succ_1=Kohonen-SOM 1
 
 [Kohonen-SOM 1]
 MLClassGenerator=TGenClusSOM
-rnd_generator=0
+rnd_generator=1
 show_anova=0
 col_count=2
 row_count=3
 normalization=1
 learning_rate=0,05
-successors=2
+successors=5
 succ_1=Define status 4
 succ_2=Define status 6
+succ_3=Define status 7
+succ_4=Define status 8
+succ_5=Export dataset 1
 
 [Define status 4]
 MLClassGenerator=TMLGenFSDefStatus
@@ -121,12 +124,12 @@ input_count=14
 input_1=Fecha
 input_2=Temperatura media diaria
 input_3=Temperatura de rocio
-input_4= Presion reducida al nivel medio del mar (hpa)
+input_4=Presion reducida al nivel medio del mar (hpa)
 input_5=Presion al nivel de la estacion (hpa)
 input_6=Visibilidad en km
-input_7= Viento medio (m/s)
+input_7=Viento medio (m/s)
 input_8=Máximo viento sostenido (m/s)
-input_9= Temperatura Máxima (Celsisus)
+input_9=Temperatura Máxima (Celsisus)
 input_10=Temperatura Minima (Celsisus)
 input_11=c2d_Neblina_1
 input_12=c2d_Lluvia_1
@@ -155,12 +158,12 @@ input_count=11
 input_1=Fecha
 input_2=Temperatura media diaria
 input_3=Temperatura de rocio
-input_4= Presion reducida al nivel medio del mar (hpa)
+input_4=Presion reducida al nivel medio del mar (hpa)
 input_5=Presion al nivel de la estacion (hpa)
 input_6=Visibilidad en km
-input_7= Viento medio (m/s)
+input_7=Viento medio (m/s)
 input_8=Máximo viento sostenido (m/s)
-input_9= Temperatura Máxima (Celsisus)
+input_9=Temperatura Máxima (Celsisus)
 input_10=Temperatura Minima (Celsisus)
 input_11=Provincia
 illus_count=0
@@ -170,5 +173,78 @@ succ_1=Group characterization 1
 [Group characterization 1]
 MLClassGenerator=TMLGenCompSDGroupCarac
 normalization=0
+successors=0
+
+[Define status 7]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
+input_count=9
+input_1=Temperatura media diaria
+input_2=Temperatura de rocio
+input_3=Presion reducida al nivel medio del mar (hpa)
+input_4=Presion al nivel de la estacion (hpa)
+input_5=Visibilidad en km
+input_6=Viento medio (m/s)
+input_7=Máximo viento sostenido (m/s)
+input_8=Temperatura Máxima (Celsisus)
+input_9=Temperatura Minima (Celsisus)
+illus_count=0
+successors=1
+succ_1=Supervised Learning 2 (Naive bayes continuous)
+
+[Supervised Learning 2 (Naive bayes continuous)]
+MLClassGenerator=TMLGCompOneInstance
+embedded_spv=1
+embedded_section=Supervised Learning 2 (Naive bayes continuous)--Naive bayes continuous
+successors=0
+
+[Supervised Learning 2 (Naive bayes continuous)--Naive bayes continuous]
+MLClassGenerator=TMLGCompNaiveBayesContinuous
+lambda_laplacian=0
+homoscedasticity=1
+
+[Define status 8]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
+input_count=10
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4=Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7=Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9=Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+illus_count=0
+successors=1
+succ_1=Supervised Learning 3 (Multilayer perceptron)
+
+[Supervised Learning 3 (Multilayer perceptron)]
+MLClassGenerator=TMLGCompOneInstance
+embedded_spv=1
+embedded_section=Supervised Learning 3 (Multilayer perceptron)--Multilayer perceptron
+successors=0
+
+[Supervised Learning 3 (Multilayer perceptron)--Multilayer perceptron]
+MLClassGenerator=TMLGCompSpvMLP
+use_hidden_layer=1
+nb_hidden_neurons=10
+proportion_validation_set=0,2
+learning_rate=0,15
+att_transformation=2
+max_iteration=100
+thresold_error_rate=0,01
+use_test_err_stagnation=0
+nb_test_err_stagnation=20
+
+[Export dataset 1]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=output.txt
 successors=0
 
