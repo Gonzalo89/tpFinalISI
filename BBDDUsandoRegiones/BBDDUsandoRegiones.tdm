@@ -1,6 +1,6 @@
 [Diagram]
 Title=Default title
-Database=C:\Users\USUARIO\Desktop\tpFinalISI\BBDDUsandoRegiones\BBDDUsandoRegiones.txt
+Database=BBDDUsandoRegiones.txt
 
 [Dataset]
 MLClassGenerator=TMLGenDataset
