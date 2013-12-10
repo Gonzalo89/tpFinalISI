@@ -1,0 +1,105 @@
+[Diagram]
+Title=Analysis
+Database=input.txt
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=3
+succ_1=Define status 1
+succ_2=Define status 2
+succ_3=Export dataset 1
+
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=14
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+input_11=Neblina
+input_12=Lluvia
+input_13=Nieve o agua nieve
+input_14=Granizo
+illus_count=0
+successors=1
+succ_1=Univariate continuous stat 1
+
+[Univariate continuous stat 1]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Define status 2]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=10
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+illus_count=0
+successors=1
+succ_1=Univariate Outlier Detection 1
+
+[Univariate Outlier Detection 1]
+MLClassGenerator=TMLGenCompODUnivariate
+pvalue=0,05
+mSigma=3
+show_detected=0
+use_fences=1
+isRemoveOutliers=1
+cSigma=0
+cInnerFence=0
+cOuterFence=1
+successors=1
+succ_1=Define status 3
+
+[Define status 3]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=14
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4= Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7= Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9= Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+input_11=Neblina
+input_12=Lluvia
+input_13=Nieve o agua nieve
+input_14=Granizo
+illus_count=0
+successors=1
+succ_1=Univariate continuous stat 2
+
+[Univariate continuous stat 2]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Export dataset 1]
+MLClassGenerator=TMLGenCompExportData
+SelectExamples=0
+SelectAttributes=0
+Filename=C:\Facundo\fiuba\Introduccion a los Sistemas Inteligentes\tpFinalISI\BBDDUsandoRegiones\output.txt
+successors=0
+
