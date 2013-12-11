@@ -1,0 +1,34 @@
+[Diagram]
+Title=Analysis
+Database=input.txt
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=1
+succ_1=Define status 1
+
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=1
+target_1=Cluster_SOM_1
+input_count=11
+input_1=Fecha
+input_2=Temperatura media diaria
+input_3=Temperatura de rocio
+input_4=Presion reducida al nivel medio del mar (hpa)
+input_5=Presion al nivel de la estacion (hpa)
+input_6=Visibilidad en km
+input_7=Viento medio (m/s)
+input_8=Máximo viento sostenido (m/s)
+input_9=Temperatura Máxima (Celsisus)
+input_10=Temperatura Minima (Celsisus)
+input_11=Estacion
+illus_count=0
+successors=1
+succ_1=Group characterization 1
+
+[Group characterization 1]
+MLClassGenerator=TMLGenCompSDGroupCarac
+normalization=0
+successors=0
+
